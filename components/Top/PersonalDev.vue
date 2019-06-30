@@ -9,12 +9,12 @@
       component(:is="panelItem.componentName")
 </template>
 <script>
-import UsakoBox from '@/components/Top/UsakoBox'
-import UsakichiBox from '@/components/Top/UsakichiBox'
 import PersonalDevBox from '@/components/Top/PersonalDevBox'
-import LineBotBox from '@/components/Top/LineBotBox'
-import PortfolioBox from '@/components/Top/PortfolioBox'
-import BlogBox from '@/components/Top/BlogBox'
+import UsakoBox from '@/components/Top/PersonalDevBoxList/UsakoBox'
+import UsakichiBox from '@/components/Top/PersonalDevBoxList/UsakichiBox'
+import LineBotBox from '@/components/Top/PersonalDevBoxList/LineBotBox'
+import PortfolioBox from '@/components/Top/PersonalDevBoxList/PortfolioBox'
+import BlogBox from '@/components/Top/PersonalDevBoxList/BlogBox'
 
 export default {
   name: 'PersonalDev',
