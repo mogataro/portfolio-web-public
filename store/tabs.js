@@ -10,9 +10,12 @@ const initialState = {
       label: 'スキル',
       isActive: false
     },
-    { label: '個人開発', isActive: false },
     {
-      label: '業務',
+      label: '個人開発',
+      isActive: false
+    },
+    {
+      label: '業務開発',
       isActive: false
     }
   ]
