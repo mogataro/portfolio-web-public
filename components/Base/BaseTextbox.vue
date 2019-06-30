@@ -78,7 +78,7 @@ export default {
   background: white
   border: 1px solid black
   color: black
-  font-size: 14px
+  font-size: 12px
   vertical-align: middle
   width: 100%
   height: 100%
