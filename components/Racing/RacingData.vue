@@ -2,7 +2,7 @@
 section.racing-data
   button(
     @click="startRacing()"
-  ) 出走
+  ) 出走(クリック)
   RacingLatestData
   RacingAchievementData
 
@@ -47,6 +47,13 @@ export default {
 
 <style lang="sass" scoped>
 .racing-data
+  padding-top: 20px
   button
     border: 1px solid black
+    width: 200px
+    height: 40px
+    background: blue
+    color: white
+    border-radius: 10px
+    box-shadow: 3px 3px 0 gray
 </style>

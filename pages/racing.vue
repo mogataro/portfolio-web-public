@@ -15,6 +15,15 @@ section.racing
   RacingMusic(
     :isMusic="isMusic"
   )
+  CommonDialog(
+    :addClass="'base'"
+    v-if="dirty"
+    @onCancelClicked="dirty = false"
+  )
+    p(slot="header") ※備考
+    p(slot="body") 現在、徒競走ゲームは開発中のため、
+      br
+      | 実際の内容とは異なります。
 </template>
 <script>
 import BaseText from '@/components/Base/BaseText'
@@ -22,6 +31,8 @@ import BaseButton from '@/components/Base/BaseButton'
 import RacingTrack from '@/components/Racing/RacingTrack'
 import RacingData from '@/components/Racing/RacingData'
 import RacingMusic from '@/components/Racing/RacingMusic'
+import CommonDialog from '@/components/Common/CommonDialog'
+
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -31,7 +42,8 @@ export default {
     BaseButton,
     RacingTrack,
     RacingData,
-    RacingMusic
+    RacingMusic,
+    CommonDialog
   },
   data() {
     return {
@@ -39,7 +51,8 @@ export default {
         csikospost: false,
         cheers: false,
         gun: false
-      }
+      },
+      dirty: true //- モーダルに使用
     }
   },
   computed: {
@@ -67,7 +80,8 @@ export default {
     },
     csikospostFin() {
       this.isMusic.csikospost = false
-    }
+    },
+    onCancelClicked() {}
   }
 }
 </script>

@@ -1,16 +1,7 @@
 <template lang="pug">
-.business-dev__box(
-  @mouseover="mouseover(panelName)"
-  @mouseleave="mouseleave(panelName)"
-)
+.business-dev-box
   .business-dev__box__container
     slot
-      //- PanelHover(
-      //-   v-show="isPanel[panelName].isHover"
-      //-   :webUrl="isPanel[panelName].webUrl"
-      //-   :gitUrl="isPanel[panelName].gitUrl"
-      //-   :gitUrlSecond="isPanel[panelName].gitUrlSecond"
-      //- )
 </template>
 <script>
 import PanelHover from '@/components/Top/PanelHover'
@@ -25,48 +16,41 @@ export default {
       type: String,
       default: ''
     }
-    // isPanel: {
-    //   type: Object,
-    //   default() {
-    //     return {}
-    //   }
-    // }
-  },
-  methods: {
-    // mouseover(panel) {
-    //   this.isPanel[panel].isHover = true
-    // },
-    // mouseleave(panel) {
-    //   this.isPanel[panel].isHover = false
-    // }
   }
 }
 </script>
 <style lang="sass" scoped>
-.business-dev
-  &__list
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-around
-  &__box
-    min-width: 300px
-    width: 300px
-    height: 300px
-    border: 1px solid black
+.business-dev-box
+  border: 4px solid gray
+  border-radius: 10px
+  margin-top: 20px
+  position: relative
+  &::before,
+  &::after
+    position: absolute
+    top: -4px
+    right: -4px
+    bottom: -4px
+    left: -4px
+    z-index: 1
+    content: ''
+    transition: all .3s
+  &::before
+    border-top: 5px solid $animeBorder
+    border-bottom: 5px solid $animeBorder
     border-radius: 10px
-    margin-top: 20px
-    position: relative
-    &:hover
-      // border: none
-    &__header
-      font-size: 20px
-      height: 34px
-      line-height: 34px
-      padding-left: 10px
-      background: $boxHeaderBg
-      border-radius: 10px 10px 0 0
-    &__content
-      font-size: 20px
-      line-height: 20px
-      padding: 0 10px
+    transform: scale(0, 1)
+  &::after
+    border-right: 5px solid $animeBorder
+    border-left: 5px solid $animeBorder
+    border-radius: 10px
+    transform: scale(1, 0)
+  &:hover
+    &::before,
+    &::after
+      transform: scale(1)
+  &__container
+    font-size: 20px
+    line-height: 20px
+    padding: 0 10px
 </style>

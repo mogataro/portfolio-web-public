@@ -1,5 +1,5 @@
 <template lang="pug">
-div.dialog
+div.dialog(:class="addClass")
   div.dialog__overlay
   div.dialog__card
     div.dialog__header
@@ -15,6 +15,12 @@ div.dialog
 <script>
 export default {
   name: 'CommonDialog',
+  props: {
+    addClass: {
+      type: String,
+      default: ''
+    }
+  },
   methods: {
     cancelClicked() {
       this.$emit('onCancelClicked')
@@ -27,9 +33,14 @@ export default {
 .dialog
   height: 100%
   left: 0
+  right: 0
   position: fixed
   top: 0
+  bottom: 0
   width: 100%
+  margin: auto
+  &.base
+    width: 320px
   &__overlay
     background: rgba(black, 0.5)
     height: 100%

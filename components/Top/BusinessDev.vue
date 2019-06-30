@@ -10,17 +10,31 @@
 <script>
 import BusinessDevBox from '@/components/Top/BusinessDevBox'
 import FukullyBox from '@/components/Top/BusinessDevBoxList/FukullyBox'
+import AccountingBox from '@/components/Top/BusinessDevBoxList/AccountingBox'
+import KikicomAppBox from '@/components/Top/BusinessDevBoxList/KikicomAppBox'
+import KikicomBox from '@/components/Top/BusinessDevBoxList/KikicomBox'
+import GirlpressBox from '@/components/Top/BusinessDevBoxList/GirlpressBox'
+import IotBox from '@/components/Top/BusinessDevBoxList/IotBox'
 
 export default {
   name: 'BusinessDev',
   components: {
     BusinessDevBox,
-    FukullyBox
+    FukullyBox,
+    AccountingBox,
+    KikicomAppBox,
+    KikicomBox,
+    GirlpressBox,
+    IotBox
   },
   data() {
     return {
       panelList: [
-        { componentName: 'FukullyBox' },
+        { componentName: 'IotBox' },
+        { componentName: 'GirlpressBox' },
+        { componentName: 'KikicomBox' },
+        { componentName: 'KikicomAppBox' },
+        { componentName: 'AccountingBox' },
         { componentName: 'FukullyBox' }
       ]
     }

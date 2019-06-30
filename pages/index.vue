@@ -1,10 +1,6 @@
 <template lang="pug">
 section.index
   .index__container
-    //- p
-    //-   BaseText(:size="40") ゆっくりしてってね
-    //- div.img
-    //-   img(src="@/assets/img/svg/usako.svg")
     PortfolioTitle
     PortfolioTabs
     PortfolioList
@@ -33,10 +29,4 @@ export default {
     min-width: 750px
     max-width: 1223px
     margin: auto
-  // .img
-  //   border: 3px solid black
-  //   border-radius: 20px
-  //   margin: auto
-  //   width: 300px
-  //   height: 300px
 </style>
