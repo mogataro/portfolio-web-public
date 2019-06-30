@@ -26,7 +26,7 @@ export default {
     height: calc(100% - 60px)
     overflow: auto
     .container
-      width: calc(100% - 50px)
+      padding: 0 25px
       margin: auto
       -webkit-overflow-scrolling: touch
       -webkit-transform: translateZ(0px)
