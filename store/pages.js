@@ -27,7 +27,7 @@ export const getters = {
   getTitle: state => path => {
     let title = 'タイトル'
     state.menu.forEach(item => {
-      if (path === item.path) {
+      if (path === item.path || path === `${item.path}/`) {
         title = item.text
       }
     })
@@ -44,7 +44,7 @@ export const mutations = {
   },
   updateMenuActive(state, payload) {
     state.menu.forEach(item => {
-      item.active = item.path === payload
+      item.active = item.path === payload || `${item.path}/` === payload
     })
   }
 }

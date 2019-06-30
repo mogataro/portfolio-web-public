@@ -43,14 +43,14 @@ module.exports = {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources',
-    [
-      '@nuxtjs/google-adsense',
-      {
-        id: AdsenceId,
-        pageLevelAds: true
-      }
-    ]
+    '@nuxtjs/style-resources'
+    // [
+    //   '@nuxtjs/google-adsense',
+    //   {
+    //     id: AdsenceId,
+    //     pageLevelAds: true
+    //   }
+    // ]
   ],
   styleResources: {
     sass: ['@/assets/sass/import.sass', '~/assets/sass/anime.sass']
