@@ -62,7 +62,7 @@ export default {
     this.fetchRaceResults()
   },
   methods: {
-    ...mapActions('race-result', ['fetchRaceResults', 'postRaceResults']),
+    ...mapActions('race-result', ['fetchRaceResults']),
     ...mapActions('race-state', ['transitionRaceState']),
     ...mapActions('runners', ['fetchRunnersData']),
     dateFormat(dateTime) {

@@ -40,10 +40,9 @@ export const actions = {
   },
   async postRaceResults({ commit, dispatch }, payload) {
     commit('updateIsLoading', true)
+    console.log(payload)
     await this.$axios.post('raceresult', payload)
     dispatch('fetchRaceResults')
-    setTimeout(() => {
-      commit('updateIsLoading', false)
-    }, 1000)
+    commit('updateIsLoading', false)
   }
 }
