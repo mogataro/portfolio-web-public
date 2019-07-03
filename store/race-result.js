@@ -34,9 +34,10 @@ export const actions = {
     commit('updateIsLoading', true)
     const { data } = await this.$axios('raceresult')
     commit('initRaceresults', data)
-    setTimeout(() => {
-      commit('updateIsLoading', false)
-    }, 1000)
+    // settimeoutは、ローディングを見せたくて入れていた。
+    // setTimeout(() => {
+    commit('updateIsLoading', false)
+    // }, 1000)
   },
   async postRaceResults({ commit, dispatch }, payload) {
     commit('updateIsLoading', true)

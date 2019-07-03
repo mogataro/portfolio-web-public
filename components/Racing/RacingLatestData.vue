@@ -77,32 +77,32 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.racing-track
-button
-  border: 1px solid black
+.racing-latest-data
+  button
+    border: 1px solid black
 
-.tb
-  max-width: 500px
-  min-width: 312px
-  .tr
-    display: flex
-    justify-content: space-between
-    width: 100%
-    border-top: 1px solid black
-    &:last-child
-      border-bottom: 1px solid black
-    .td
-      width: 20%
-      min-width: 52px
-      text-align: center
-      border-left: 1px solid black
+  .tb
+    max-width: 500px
+    min-width: 312px
+    .tr
+      display: flex
+      justify-content: space-between
+      width: 100%
+      border-top: 1px solid black
       &:last-child
-        border-right: 1px solid black
-      .img
-        width: 100%
-  .th
-    @extend .tr
-    .td
-      height: 25px
-      line-height: 25px
+        border-bottom: 1px solid black
+      .td
+        width: 20%
+        min-width: 52px
+        text-align: center
+        border-left: 1px solid black
+        &:last-child
+          border-right: 1px solid black
+        .img
+          width: 100%
+    .th
+      @extend .tr
+      .td
+        height: 25px
+        line-height: 25px
 </style>

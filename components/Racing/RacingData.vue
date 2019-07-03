@@ -48,6 +48,7 @@ export default {
 <style lang="sass" scoped>
 .racing-data
   padding-top: 20px
+  min-height: 100vh
   button
     border: 1px solid black
     width: 200px
