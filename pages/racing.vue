@@ -15,6 +15,8 @@ section.racing
   RacingMusic(
     :isMusic="isMusic"
   )
+  BaseOverlay(v-if="getResultIsLoading || getAchievementIsLoading")
+  BaseLoadingIcon(v-if="getResultIsLoading || getAchievementIsLoading")
   CommonDialog(
     :addClass="'base'"
     v-if="dirty"
@@ -33,6 +35,9 @@ import RacingData from '@/components/Racing/RacingData'
 import RacingMusic from '@/components/Racing/RacingMusic'
 import CommonDialog from '@/components/Common/CommonDialog'
 
+import BaseOverlay from '@/components/Base/BaseOverlay'
+import BaseLoadingIcon from '@/components/Base/BaseLoadingIcon'
+
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -43,7 +48,9 @@ export default {
     RacingTrack,
     RacingData,
     RacingMusic,
-    CommonDialog
+    CommonDialog,
+    BaseOverlay,
+    BaseLoadingIcon
   },
   data() {
     return {
@@ -56,7 +63,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('race-state', ['getRaceState'])
+    ...mapGetters('race-state', ['getRaceState']),
+    ...mapGetters('race-result', ['getResultIsLoading']),
+    ...mapGetters('achievement', ['getAchievementIsLoading'])
   },
   mounted() {
     // console.log(this.getRaceState)
@@ -64,7 +73,6 @@ export default {
   methods: {
     startMusic() {
       this.isMusic.csikospost = true
-      // console.log(this.isMusic);
       setTimeout(() => {
         this.isMusic.gun = true
       }, 3200)

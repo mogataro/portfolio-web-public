@@ -1,4 +1,6 @@
-require('./package')
+// require('./package')
+
+module.exports.meta = require('./package.json')
 require('dotenv').config()
 
 const API_URL =

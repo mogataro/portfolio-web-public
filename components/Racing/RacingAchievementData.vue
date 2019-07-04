@@ -1,49 +1,52 @@
 <template lang="pug">
 div.racing-achievement-data
-  p ランナーデータ
-  div
-    div.th
-      div.td
-        p 名前
-      div.td
-        p レース
-        p 総回数
-      div.td
-        p 1着
-        p 回数
-      div.td
-        p 2着
-        p 回数
-      div.td
-        p 3着
-        p 回数
-      div.td
-        p 4着
-        p 回数
-      div.td
-        p 5着
-        p 回数
-      div.td
-        p 勝率
-    div.tr(v-for="runner in getAchievement")
-      div.td
-        p {{getRunnerName(runner.id)}}
-        p.img
-          img(:src="requireSrc(runner.id)" width="40px")
-      div.td
-        p {{runner.race_count}}
-      div.td
-        p {{runner.rank1_count}}
-      div.td
-        p {{runner.rank2_count}}
-      div.td
-        p {{runner.rank3_count}}
-      div.td
-        p {{runner.rank4_count}}
-      div.td
-        p {{runner.rank5_count}}
-      div.td
-        p {{runner.win_rate}}%
+  div(v-if="getAchievement.length > 0")
+    p ランナーデータ
+    div
+      div.th
+        div.td
+          p 名前
+        div.td
+          p レース
+          p 総回数
+        div.td
+          p 1着
+          p 回数
+        div.td
+          p 2着
+          p 回数
+        div.td
+          p 3着
+          p 回数
+        div.td
+          p 4着
+          p 回数
+        div.td
+          p 5着
+          p 回数
+        div.td
+          p 勝率
+      div.tr(v-for="runner in getAchievement")
+        div.td
+          p {{getRunnerName(runner.id)}}
+          p.img
+            img(:src="requireSrc(runner.id)" width="40px")
+        div.td
+          p {{runner.race_count}}
+        div.td
+          p {{runner.rank1_count}}
+        div.td
+          p {{runner.rank2_count}}
+        div.td
+          p {{runner.rank3_count}}
+        div.td
+          p {{runner.rank4_count}}
+        div.td
+          p {{runner.rank5_count}}
+        div.td
+          p {{runner.win_rate}}%
+  div(v-else)
+    p ランナーデータがありません。
 
   //- 名前、iconのセルをクリックすると、そのランナー戦績をモーダル表示する
   RacingAchievementCommonModal(v-if="false")

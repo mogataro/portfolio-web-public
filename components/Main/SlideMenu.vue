@@ -70,7 +70,7 @@ export default {
   position: fixed
   left: 0
   top: 0
-  z-index: 3
+  z-index: 5
   border-right: 2px solid black
   &__title
     background: cadetblue

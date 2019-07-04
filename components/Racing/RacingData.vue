@@ -5,9 +5,6 @@ section.racing-data
   ) 出走(クリック)
   RacingLatestData
   RacingAchievementData
-
-  BaseOverlay(v-if="getResultIsLoading || getAchievementIsLoading")
-  BaseLoadingIcon(v-if="getResultIsLoading || getAchievementIsLoading")
 </template>
 
 <script>
@@ -25,19 +22,8 @@ export default {
     RacingLatestData,
     RacingAchievementData
   },
-  computed: {
-    // ...mapGetters('runners', ['getRunners', 'getRunnerName']),
-    ...mapGetters('race-result', ['getResultIsLoading']),
-    ...mapGetters('achievement', ['getAchievementIsLoading'])
-  },
-  mounted() {
-    // this.fetchRaceResults()
-    // this.fetchRunnersData()
-  },
   methods: {
-    // ...mapActions('race-result', ['fetchRaceResults', 'postRaceResults']),
     ...mapActions('race-state', ['transitionRaceState']),
-    // ...mapActions('runners', ['fetchRunnersData']),
     startRacing() {
       this.transitionRaceState('racing')
     }
@@ -49,6 +35,7 @@ export default {
 .racing-data
   padding-top: 20px
   min-height: 100vh
+  position: relative
   button
     border: 1px solid black
     width: 200px
