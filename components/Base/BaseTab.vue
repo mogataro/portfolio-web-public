@@ -68,6 +68,7 @@ export default {
     line-height: 28px
   &__left,
   &__right
+    min-width: 2px
     width: 2px
     height: 30px
     background: $baseTabBorder
