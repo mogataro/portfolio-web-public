@@ -64,27 +64,30 @@ export default {
     BaseText,
     RacingAchievementCommonModal
   },
+  props: {
+    getRunnerName: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    getRunnerSrc: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    getAchievement: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
   data() {
     return {}
   },
-  computed: {
-    ...mapGetters('runners', ['getRunners', 'getRunnerName', 'getRunnerSrc']),
-    ...mapGetters('race-result', ['getRaceResults']),
-    ...mapGetters('race-state', ['getRaceState']),
-    ...mapGetters('achievement', ['getAchievement'])
-  },
-  created() {
-    this.fetchRunnersData()
-    this.fetchAchievement()
-  },
-  mounted() {
-    this.fetchRaceResults()
-  },
   methods: {
-    ...mapActions('race-result', ['fetchRaceResults', 'postRaceResults']),
-    ...mapActions('race-state', ['transitionRaceState']),
-    ...mapActions('runners', ['fetchRunnersData']),
-    ...mapActions('achievement', ['fetchAchievement', 'postAchievement']),
     dateFormat(dateTime) {
       return format(dateTime, 'M/D HH:mm')
     },

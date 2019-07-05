@@ -30,20 +30,20 @@ export default {
     return {
       panelList: [
         {
-          panelName: 'portfolio',
-          componentName: 'PortfolioBox'
-        },
-        {
           panelName: 'colorCode',
           componentName: 'UsakoBox'
+        },
+        {
+          panelName: 'lineBot',
+          componentName: 'LineBotBox'
         },
         {
           panelName: 'racing',
           componentName: 'UsakichiBox'
         },
         {
-          panelName: 'lineBot',
-          componentName: 'LineBotBox'
+          panelName: 'portfolio',
+          componentName: 'PortfolioBox'
         },
         {
           panelName: 'blog',
@@ -60,13 +60,14 @@ export default {
         colorCode: {
           header: 'カラーコード変換',
           isHover: false,
-          webUrl: 'https://mogataro.com/colorcode',
+          webUrl: '/colorcode',
           gitUrl: 'https://github.com/mogataro/portfolio-web-public'
         },
         racing: {
           header: '徒競走ゲーム',
           isHover: false,
-          webUrl: 'https://mogataro.com/racing',
+          // webUrl: 'https://mogataro.com/racing',
+          webUrl: '/racing',
           gitUrl: 'https://github.com/mogataro/portfolio-web-public',
           gitUrlSecond: 'https://github.com/mogataro/portfolio-server'
         },

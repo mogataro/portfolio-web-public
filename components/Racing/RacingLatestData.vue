@@ -47,24 +47,30 @@ export default {
   components: {
     BaseText
   },
+  props: {
+    getRunnerName: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    getRunnerSrc: {
+      type: Array,
+      default() {
+        return []
+      }
+    },
+    getRaceResults: {
+      type: Array,
+      default() {
+        return []
+      }
+    }
+  },
   data() {
     return {}
   },
-  computed: {
-    ...mapGetters('runners', ['getRunners', 'getRunnerName', 'getRunnerSrc']),
-    ...mapGetters('race-result', ['getRaceResults']),
-    ...mapGetters('race-state', ['getRaceState'])
-  },
-  created() {
-    this.fetchRunnersData()
-  },
-  mounted() {
-    this.fetchRaceResults()
-  },
   methods: {
-    ...mapActions('race-result', ['fetchRaceResults']),
-    ...mapActions('race-state', ['transitionRaceState']),
-    ...mapActions('runners', ['fetchRunnersData']),
     dateFormat(dateTime) {
       return format(dateTime, 'M/D HH:mm')
     },

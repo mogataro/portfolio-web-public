@@ -52,7 +52,8 @@ export const actions = {
   pageMoving({ commit }, payload) {
     commit('pages/updateMenu', payload, { root: true })
   },
-  pageRouteActive({ commit }, payload) {
+  pageRouteActive({ commit, rootState }, payload) {
+    // const payload = rootState.route.path
     commit('pages/updateMenuActive', payload, { root: true })
   }
 }

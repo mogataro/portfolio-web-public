@@ -1,6 +1,6 @@
 // require('./package')
 
-module.exports.meta = require('./package.json')
+// module.exports.meta = require('./package.json')
 require('dotenv').config()
 
 const API_URL =
@@ -14,7 +14,9 @@ const AdsenceId = process.env.AdsenceId
 module.exports = {
   mode: 'spa',
   router: {
-    base: '/'
+    base: '/',
+    middleware: ['index'],
+    loading: '~/components/Main/loading.vue'
   },
   head: {
     title: 'mogataro',
@@ -38,6 +40,7 @@ module.exports = {
   plugins: [
     '~plugins/scroll.js',
     '~/plugins/axios',
+    '~/plugins/vuex-router-sync',
     { src: '~plugins/ga.js', ssr: false },
     { src: '@/plugins/format', ssr: false }
   ],

@@ -24,26 +24,26 @@ export const mutations = {
       state.achievement = payload
     }
   },
-  updateIsLoading(state, payload) {
+  updateAchievementIsLoading(state, payload) {
     state.isLoading = payload
   }
 }
 
 export const actions = {
   async fetchAchievement({ commit }) {
-    commit('updateIsLoading', true)
-    const { data } = await this.$axios('achievement')
+    commit('updateAchievementIsLoading', true)
+    const { data } = await this.$axios('achievement').catch(e => {
+      null
+    })
+    console.log(data)
     commit('initAchievement', data)
-    setTimeout(() => {
-      commit('updateIsLoading', false)
-    }, 1000)
+    commit('updateAchievementIsLoading', false)
   },
   async postAchievement({ commit, dispatch }, payload) {
-    commit('updateIsLoading', true)
+    commit('updateAchievementIsLoading', true)
     await this.$axios.post('achievement', payload)
-    // dispatch('fetchRaceResults')
     setTimeout(() => {
-      commit('updateIsLoading', false)
+      commit('updateAchievementIsLoading', false)
     }, 1000)
   }
 }

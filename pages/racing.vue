@@ -8,13 +8,14 @@ section.racing
     @startMusic="startMusic"
     @finishMusic="finishMusic"
   )
-  //- RacingTrack(
-  //-   @startMusic="startMusic"
-  //-   @finishMusic="finishMusic"
-  //- )
+  RacingResult(
+    v-if="getRaceState === 'result'"
+  )
   RacingMusic(
     :isMusic="isMusic"
   )
+  div(v-if="getResultIsLoading || getAchievementIsLoading")
+    p aaaaa 
   BaseOverlay(v-if="getResultIsLoading || getAchievementIsLoading")
   BaseLoadingIcon(v-if="getResultIsLoading || getAchievementIsLoading")
   CommonDialog(
@@ -32,6 +33,7 @@ import BaseText from '@/components/Base/BaseText'
 import BaseButton from '@/components/Base/BaseButton'
 import RacingTrack from '@/components/Racing/RacingTrack'
 import RacingData from '@/components/Racing/RacingData'
+import RacingResult from '@/components/Racing/RacingResult'
 import RacingMusic from '@/components/Racing/RacingMusic'
 import CommonDialog from '@/components/Common/CommonDialog'
 
@@ -47,6 +49,7 @@ export default {
     BaseButton,
     RacingTrack,
     RacingData,
+    RacingResult,
     RacingMusic,
     CommonDialog,
     BaseOverlay,
@@ -95,4 +98,5 @@ export default {
 </script>
 <style lang="sass" scoped>
 .racing
+  min-height: 100vh
 </style>

@@ -3,8 +3,8 @@ section.racing-data
   button(
     @click="startRacing()"
   ) 出走(クリック)
-  RacingLatestData
-  RacingAchievementData
+  RacingLatestData(:getRunnerName="getRunnerName" :getRunnerSrc="getRunnerSrc" :getRaceResults="getRaceResults")
+  RacingAchievementData(:getRunnerName="getRunnerName" :getRunnerSrc="getRunnerSrc" :getAchievement="getAchievement")
 </template>
 
 <script>
@@ -21,6 +21,11 @@ export default {
     BaseLoadingIcon,
     RacingLatestData,
     RacingAchievementData
+  },
+  computed: {
+    ...mapGetters('race-result', ['getRaceResults']),
+    ...mapGetters('achievement', ['getAchievement']),
+    ...mapGetters('runners', ['getRunnerName', 'getRunnerSrc'])
   },
   methods: {
     ...mapActions('race-state', ['transitionRaceState']),

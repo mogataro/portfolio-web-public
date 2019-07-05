@@ -49,11 +49,8 @@ export default {
   computed: {
     ...mapGetters('pages', ['getMenu'])
   },
-  created() {
-    this.pageRouteActive(this.$route.path)
-  },
   methods: {
-    ...mapActions('pages', ['pageMoving', 'pageRouteActive']),
+    ...mapActions('pages', ['pageMoving']),
     ...mapMutations('pages', ['updateMenu']),
     pageMove(index) {
       this.pageMoving(index)

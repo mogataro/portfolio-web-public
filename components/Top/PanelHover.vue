@@ -3,8 +3,9 @@ transition(name="panel-hover")
   .panel-hover
     .panel-hover__link(v-if="!!gitUrlSecond")
       a.panel-hover__link-item-second(
-        v-if="!!webUrl"
-        :href="webUrl"
+        v-if="webUrl"
+        @click="pageMove"
+        :href="useWebUrl()"
       )
         p Web
       a.panel-hover__link-item-second(
@@ -24,8 +25,9 @@ transition(name="panel-hover")
           | (API)
     .panel-hover__link(v-else)
       a.panel-hover__link-item(
-        v-if="!!webUrl"
-        :href="webUrl"
+        v-if="webUrl"
+        @click="pageMove"
+        :href="useWebUrl()"
       )
         p Web
       a.panel-hover__link-item(
@@ -49,6 +51,21 @@ export default {
     gitUrlSecond: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    useWebUrl() {
+      let webUrl = this.webUrl
+      const regex = new RegExp(/^http/)
+      if (!regex.test(webUrl)) {
+        return null
+      }
+      return webUrl
+    },
+    pageMove() {
+      let webUrl = this.webUrl
+      const regex = new RegExp(/^http/)
+      if (!regex.test(webUrl)) this.$router.push(webUrl)
     }
   }
 }

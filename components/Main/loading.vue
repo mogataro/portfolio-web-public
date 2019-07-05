@@ -1,11 +1,20 @@
 <template lang="pug">
-  div.loading-page(v-if="loading")
-    p Loading...
+.loading-page(v-if="loading")
+  BaseOverlay(:addClass="'loading'")
+  BaseLoadingIcon
+  p loading...
 </template>
 
 <script>
+import BaseOverlay from '@/components/Base/BaseOverlay'
+import BaseLoadingIcon from '@/components/Base/BaseLoadingIcon'
+
 export default {
   name: 'Loading',
+  components: {
+    BaseOverlay,
+    BaseLoadingIcon
+  },
   data() {
     return {
       loading: false
@@ -33,5 +42,11 @@ export default {
   text-align: center
   padding-top: 200px
   font-size: 30px
-  font-family: sans-serif
+  z-index: 90
+  p
+    position: fixed
+    bottom: 20px
+    right: 20px
+    color: white
+    z-index: 91
 </style>

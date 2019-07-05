@@ -1,6 +1,6 @@
 <template lang="pug">
 .racing-track(ref="racing-track")
-  .racing(v-if="!isResult")
+  .racing(v-if="!isPodium")
     .racing-track-course(
       v-for="runner in getRunners"
       :key="runner.id"
@@ -19,7 +19,7 @@
         )
           BaseText {{runner.name}}
 
-  .podium(v-if="isResult")
+  .podium(v-if="isPodium")
     .img
       img(src="@/assets/img/png/podium.png" height="100%")
     .second(v-if="!!rank2")
@@ -65,7 +65,7 @@ export default {
         gun: false
       },
       ranking: [],
-      isResult: false
+      isPodium: false
     }
   },
   computed: {
@@ -147,7 +147,7 @@ export default {
         clearInterval(this.isRacing)
         this.resultSave()
         setTimeout(() => {
-          this.isResult = true
+          this.isPodium = true
         }, 2000)
       } else {
         this.runnerMove([distance, this.ranking])

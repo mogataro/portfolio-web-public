@@ -8,9 +8,9 @@ const startRacing = () => {
 }
 
 const raceStates = {
-  0: 'ready',
-  1: 'racing',
-  2: 'result'
+  0: 'ready', //過去のレースデータとレース予想投票
+  1: 'racing', //レースとレース結果
+  2: 'result' //予想の結果
 }
 const initialState = {
   raceState: raceStates[0]

@@ -26,4 +26,6 @@ export default {
   z-index: 3
   &.side
     top: 60px
+  &.loading
+    background: black
 </style>
