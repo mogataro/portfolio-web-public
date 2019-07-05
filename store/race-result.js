@@ -35,7 +35,6 @@ export const actions = {
     const { data } = await this.$axios('raceresult').catch(e => {
       null
     })
-    console.log(data)
     commit('initRaceresults', data)
     commit('updateIsLoading', false)
   },

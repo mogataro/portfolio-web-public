@@ -70,9 +70,6 @@ export default {
     ...mapGetters('race-result', ['getResultIsLoading']),
     ...mapGetters('achievement', ['getAchievementIsLoading'])
   },
-  mounted() {
-    // console.log(this.getRaceState)
-  },
   methods: {
     startMusic() {
       this.isMusic.csikospost = true

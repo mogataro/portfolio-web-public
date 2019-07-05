@@ -35,7 +35,6 @@ export const actions = {
     const { data } = await this.$axios('achievement').catch(e => {
       null
     })
-    console.log(data)
     commit('initAchievement', data)
     commit('updateAchievementIsLoading', false)
   },
