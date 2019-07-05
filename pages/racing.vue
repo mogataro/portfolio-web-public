@@ -14,9 +14,7 @@ section.racing
   RacingMusic(
     :isMusic="isMusic"
   )
-  div(v-if="getResultIsLoading || getAchievementIsLoading")
-    p aaaaa 
-  BaseOverlay(v-if="getResultIsLoading || getAchievementIsLoading")
+  BaseOverlay(:addClass="'loading'" v-if="getResultIsLoading || getAchievementIsLoading")
   BaseLoadingIcon(v-if="getResultIsLoading || getAchievementIsLoading")
   CommonDialog(
     :addClass="'base'"
