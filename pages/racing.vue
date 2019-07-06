@@ -14,6 +14,8 @@ section.racing
   RacingMusic(
     :isMusic="isMusic"
   )
+
+  //- TopのLoadingコンポーネントに置き換えるか検討中
   BaseOverlay(:addClass="'loading'" v-if="getResultIsLoading || getAchievementIsLoading")
   BaseLoadingIcon(v-if="getResultIsLoading || getAchievementIsLoading")
   CommonDialog(

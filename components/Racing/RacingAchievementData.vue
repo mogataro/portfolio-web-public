@@ -1,8 +1,8 @@
 <template lang="pug">
 div.racing-achievement-data
   div(v-if="getAchievement.length > 0")
-    p ランナーデータ
-    div
+    p 出走ランナーデータ
+    div.table
       div.th
         div.td
           p 名前
@@ -26,7 +26,12 @@ div.racing-achievement-data
           p 回数
         div.td
           p 勝率
-      div.tr(v-for="runner in getAchievement")
+      div.tr(
+        v-for="(runner, index) in getAchievement"
+        :key="runner.id"
+        @click="runnerGraph(runner, index)"
+        :class="{'selected': isRacingAchievementCommonModal && index === activeIndex}"
+      )
         div.td
           p {{getRunnerName(runner.id)}}
           p.img
@@ -45,11 +50,16 @@ div.racing-achievement-data
           p {{runner.rank5_count}}
         div.td
           p {{runner.win_rate}}%
+        //- 名前、iconのセルをクリックすると、そのランナー戦績をモーダル表示する
+      RacingAchievementCommonModal(
+        v-if="isRacingAchievementCommonModal"
+        @close="isRacingAchievementCommonModal = false"
+        :runnerData="runnerData"
+      )
   div(v-else)
     p ランナーデータがありません。
 
-  //- 名前、iconのセルをクリックすると、そのランナー戦績をモーダル表示する
-  RacingAchievementCommonModal(v-if="false")
+  
 </template>
 
 <script>
@@ -85,7 +95,11 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      isRacingAchievementCommonModal: false,
+      activeIndex: null,
+      runnerData: {}
+    }
   },
   methods: {
     dateFormat(dateTime) {
@@ -94,6 +108,22 @@ export default {
     requireSrc(id) {
       const file = this.getRunnerSrc(id)
       return require(`@/assets/img/gif/${file}`)
+    },
+    runnerGraph(runner, index) {
+      const isRacingAchievementCommonModal = this.isRacingAchievementCommonModal
+      if (!isRacingAchievementCommonModal) {
+        const runnerData = {
+          name: this.getRunnerName(runner.id),
+          rank1_count: runner.rank1_count,
+          rank2_count: runner.rank2_count,
+          rank3_count: runner.rank3_count,
+          rank4_count: runner.rank4_count,
+          rank5_count: runner.rank5_count
+        }
+        this.runnerData = runnerData
+        this.activeIndex = index
+      }
+      this.isRacingAchievementCommonModal = !isRacingAchievementCommonModal
     }
   }
 }
@@ -103,25 +133,37 @@ export default {
 .racing-achievement-data
   padding-bottom: 25px
   padding-top: 25px
-  .tr
-    display: flex
-    justify-content: space-between
-    width: 100%
-    border-top: 1px solid black
-    &:last-child
-      border-bottom: 1px solid black
-    .td
-      width: 20%
-      min-width: 52px
-      text-align: center
-      border-left: 1px solid black
+  min-height: 100vh
+  .table
+    border-bottom: 1px solid black
+    .tr
+      display: flex
+      justify-content: space-between
+      width: 100%
+      border-top: 1px solid black
       &:last-child
-        border-right: 1px solid black
-      .img
-        width: 100%
-  .th
-    @extend .tr
-    .td
-      height: 40px
-      line-height: 20px
+        // border-bottom: 1px solid black
+      &.selected
+        box-shadow: 0 0 0 4px green inset
+        cursor: default
+      &+ .tr:hover
+        box-shadow: 0 0 0 4px red inset
+        cursor: pointer
+        &.selected
+          box-shadow: 0 0 0 4px green inset
+          cursor: default
+      .td
+        width: 20%
+        min-width: 52px
+        text-align: center
+        border-left: 1px solid black
+        &:last-child
+          border-right: 1px solid black
+        .img
+          width: 100%
+    .th
+      @extend .tr
+      .td
+        height: 40px
+        line-height: 20px
 </style>
