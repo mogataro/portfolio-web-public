@@ -1,5 +1,5 @@
 <template lang="pug">
-div.base-overlay(
+.base-overlay(
   :class="addClass"
 )
 </template>

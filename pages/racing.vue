@@ -95,5 +95,6 @@ export default {
 </script>
 <style lang="sass" scoped>
 .racing
-  min-height: 100vh
+  min-height: calc(100vh - 60px)
+  width: 100%
 </style>

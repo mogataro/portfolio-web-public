@@ -2,9 +2,14 @@
 section.racing-data
   button(
     @click="startRacing()"
-  ) 出走(クリック)
-  RacingLatestData(:getRunnerName="getRunnerName" :getRunnerSrc="getRunnerSrc" :getRaceResults="getRaceResults")
-  RacingAchievementData(:getRunnerName="getRunnerName" :getRunnerSrc="getRunnerSrc" :getAchievement="getAchievement")
+  ) 出走する
+  button(
+    @click="toggleData()"
+  ) 
+    p(v-if="dataType.achievement") 過去のレースデータを見る
+    p(v-if="dataType.latest") ランナー情報を見る
+  RacingLatestData(v-if="dataType.latest" :getRunnerName="getRunnerName" :getRunnerSrc="getRunnerSrc" :getRaceResults="getRaceResults")
+  RacingAchievementData(v-if="dataType.achievement" :getRunnerName="getRunnerName" :getRunnerSrc="getRunnerSrc" :getAchievement="getAchievement")
 </template>
 
 <script>
@@ -22,6 +27,14 @@ export default {
     RacingLatestData,
     RacingAchievementData
   },
+  data() {
+    return {
+      dataType: {
+        achievement: true,
+        latest: false
+      }
+    }
+  },
   computed: {
     ...mapGetters('race-result', ['getRaceResults']),
     ...mapGetters('achievement', ['getAchievement']),
@@ -31,6 +44,13 @@ export default {
     ...mapActions('race-state', ['transitionRaceState']),
     startRacing() {
       this.transitionRaceState('racing')
+    },
+    toggleData() {
+      const dataType = this.dataType
+      this.dataType = {
+        achievement: !dataType.achievement,
+        latest: !dataType.latest
+      }
     }
   }
 }
@@ -39,7 +59,7 @@ export default {
 <style lang="sass" scoped>
 .racing-data
   padding-top: 20px
-  min-height: 100vh
+  // min-height: 100vh
   position: relative
   button
     border: 1px solid black
@@ -49,4 +69,6 @@ export default {
     color: white
     border-radius: 10px
     box-shadow: 3px 3px 0 gray
+    & + button
+      margin-left: 10px
 </style>

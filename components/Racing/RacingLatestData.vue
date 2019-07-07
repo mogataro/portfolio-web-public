@@ -84,9 +84,7 @@ export default {
 
 <style lang="sass" scoped>
 .racing-latest-data
-  button
-    border: 1px solid black
-
+  padding: 25px 0
   .tb
     max-width: 500px
     min-width: 312px

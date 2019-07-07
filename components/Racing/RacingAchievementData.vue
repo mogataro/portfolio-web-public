@@ -35,7 +35,7 @@ div.racing-achievement-data
         div.td
           p {{getRunnerName(runner.id)}}
           p.img
-            img(:src="requireSrc(runner.id)" width="40px")
+            img(:src="requireSrc(runner.id)" width="40px" height="40px")
         div.td
           p {{runner.race_count}}
         div.td
@@ -114,6 +114,7 @@ export default {
       if (!isRacingAchievementCommonModal) {
         const runnerData = {
           name: this.getRunnerName(runner.id),
+          src: this.getRunnerSrc(runner.id),
           rank1_count: runner.rank1_count,
           rank2_count: runner.rank2_count,
           rank3_count: runner.rank3_count,
@@ -131,9 +132,7 @@ export default {
 
 <style lang="sass" scoped>
 .racing-achievement-data
-  padding-bottom: 25px
-  padding-top: 25px
-  min-height: 100vh
+  padding: 25px 0
   .table
     border-bottom: 1px solid black
     .tr

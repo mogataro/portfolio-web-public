@@ -28,6 +28,7 @@ export default {
     .container
       padding: 0 25px
       margin: auto
+      min-width: 700px
       -webkit-overflow-scrolling: touch
       -webkit-transform: translateZ(0px)
       -webkit-transform: translate3d(0,0,0)

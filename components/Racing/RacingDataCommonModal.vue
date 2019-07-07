@@ -1,8 +1,6 @@
 <template lang="pug">
-div.racing-data-common-modal
-  //- div#chartdiv1
-  p なまえ：{{runnerData.name}}
-  div#chartdiv2
+.racing-data-common-modal
+  #chartdiv
 </template>
 <script>
 import * as am4core from '@amcharts/amcharts4/core'
@@ -47,61 +45,32 @@ export default {
     }
   },
   mounted() {
-    // this.drawChart1()
-    this.drawChart2()
+    this.drawChart()
   },
   methods: {
-    // drawChart1() {
-    //   const chart = am4core.create('chartdiv1', am4charts.XYChart)
-    //   chart.data = this.sapporo_2018
-    //   // x軸
-    //   const dateAxis = chart.xAxes.push(new am4charts.DateAxis())
-    //   // グリッド間隔
-    //   dateAxis.renderer.minGridDistance = 60
-    //   // y軸
-    //   const valueAxis = chart.yAxes.push(new am4charts.ValueAxis())
-    //   // 時系列データ
-    //   const series = chart.series.push(new am4charts.LineSeries())
-    //   series.name = 'temperature'
-    //   series.dataFields.valueY = 'temperature'
-    //   series.dataFields.dateX = 'date'
-    //   series.tooltipText = '{valueY}'
-    //   series.tooltip.pointerOrientation = 'vertical'
-    //   // カーソルに追従するライン
-    //   chart.cursor = new am4charts.XYCursor()
-    //   chart.cursor.snapToSeries = series
-    //   chart.cursor.xAxis = dateAxis
-    //   // スクロールバー
-    //   //chart.scrollbarY = new am4core.Scrollbar();
-    //   chart.scrollbarX = new am4core.Scrollbar()
-    // },
-    drawChart2() {
-      const chart = am4core.create('chartdiv2', am4charts.PieChart)
-      // グラフデータ定義 Add data
-      chart.data = this.chartData
-      // シリーズ定義 Add and configure Series, reating a series, Regular Pie chart
-      const pieSeries = chart.series.push(new am4charts.PieSeries()) //シリーズ生成
-      pieSeries.dataFields.value = 'number' //Setting up series 値
-      pieSeries.dataFields.category = 'rank' //Setting up series カテゴリ
-
-      //凡例表示 add legend
-      chart.legend = new am4charts.Legend()
-      chart.legend.position = 'bottom'
-      chart.legend.marginTop = 50
-      chart.legend.marginBottom = 20
-
-      // データラベルの表示内容変更 ************** //
-      //スライスラベル コンテンツ spec05-1 Changing slice label content View_Total_Sales_formatted
-      pieSeries.labels.template.text =
-        '{category}：{value.value}回' + "({value.percent.formatNumber('#.0')}%)"
-
-      //スライスツールチップ コンテンツ spec05-2 Changing tooltip content
-      pieSeries.slices.template.tooltipText =
-        '{category}：{value.value}回' + "( {value.percent.formatNumber('#')}%)"
-
-      //凡例の値 spec05-3 Changing legend value
-      chart.legend.valueLabels.template.text =
-        '{value.value}回' + "({value.percent.formatNumber('#')}%)"
+    drawChart() {
+      const chart = am4core.create('chartdiv', am4charts.XYChart)
+      chart.data = this.sapporo_2018
+      // x軸
+      const dateAxis = chart.xAxes.push(new am4charts.DateAxis())
+      // グリッド間隔
+      dateAxis.renderer.minGridDistance = 60
+      // y軸
+      const valueAxis = chart.yAxes.push(new am4charts.ValueAxis())
+      // 時系列データ
+      const series = chart.series.push(new am4charts.LineSeries())
+      series.name = 'temperature'
+      series.dataFields.valueY = 'temperature'
+      series.dataFields.dateX = 'date'
+      series.tooltipText = '{valueY}'
+      series.tooltip.pointerOrientation = 'vertical'
+      // カーソルに追従するライン
+      chart.cursor = new am4charts.XYCursor()
+      chart.cursor.snapToSeries = series
+      chart.cursor.xAxis = dateAxis
+      // スクロールバー
+      //chart.scrollbarY = new am4core.Scrollbar();
+      chart.scrollbarX = new am4core.Scrollbar()
     }
   }
 }
@@ -125,10 +94,7 @@ export default {
     height: 40px
     background: pink
     padding-left: 50px
-#chartdiv1
-  width: 100%
-  height: 400px
-#chartdiv2
+#chartdiv
   width: 100%
   height: 400px
 </style>

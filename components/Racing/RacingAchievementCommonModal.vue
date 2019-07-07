@@ -5,7 +5,10 @@
     .header
       p.name なまえ：{{runnerData.name}}
       p.close(@click="close") とじる
-    #chartdiv
+    .body
+      #chartdiv
+      p.img
+        img.img-icon(:src="src" width="150px" height="150px")
 </template>
 <script>
 import * as am4core from '@amcharts/amcharts4/core'
@@ -27,6 +30,7 @@ export default {
   },
   data() {
     return {
+      src: require(`@/assets/img/gif/${this.runnerData.src}`),
       chartData: [
         {
           rank: '1着',
@@ -68,10 +72,10 @@ export default {
       pieSeries.dataFields.category = 'rank' //Setting up series カテゴリ
 
       //凡例表示 add legend
-      chart.legend = new am4charts.Legend()
-      chart.legend.position = 'bottom'
-      chart.legend.marginTop = 50
-      chart.legend.marginBottom = 20
+      // chart.legend = new am4charts.Legend()
+      // chart.legend.position = 'bottom'
+      // chart.legend.marginTop = 50
+      // chart.legend.marginBottom = 20
 
       // データラベルの表示内容変更 ************** //
       //スライスラベル コンテンツ spec05-1 Changing slice label content View_Total_Sales_formatted
@@ -83,8 +87,8 @@ export default {
         '{category}：{value.value}回' + "( {value.percent.formatNumber('#.')}%)"
 
       //凡例の値 spec05-3 Changing legend value
-      chart.legend.valueLabels.template.text =
-        '{value.value}回' + "({value.percent.formatNumber('#.')}%)"
+      // chart.legend.valueLabels.template.text =
+      //   '{value.value}回' + "({value.percent.formatNumber('#.')}%)"
     }
   }
 }
@@ -93,7 +97,6 @@ export default {
 .racing-achievement-common-modal
   .racing-achievement-common-modal-main
     position: fixed
-    min-width: 522px
     width: 90%
     height: 440px
     top: 0
@@ -116,12 +119,29 @@ export default {
         line-height: 40px
       .close
         font-size: 28px
-        line-height: 40px
+        line-height: 38px
+        height: 38px
         border-radius: 8px
-        background: red
+        background: gray
+        color: #DEDEDE
         cursor: pointer
-        box-shadow: 0 2px 0 gray
-    #chartdiv
-      width: 100%
-      height: 400px
+        box-shadow: 0 2px 2px black
+    .body
+      position: relative
+      #chartdiv
+        width: 100%
+        height: 400px
+      .img
+        width: 150px
+        height: 150px
+        border-radius: 100%
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        margin: auto
+        background: $defBgColor
+        &-icon
+          border-radius: 100%
 </style>
