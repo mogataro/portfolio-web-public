@@ -1,5 +1,5 @@
 <template lang="pug">
-.racing-data-common-modal
+.racing-latest-data-common-modal
   #chartdiv
 </template>
 <script>
@@ -8,44 +8,23 @@ import * as am4charts from '@amcharts/amcharts4/charts'
 import sapporo_2018 from '@/static/sapporo_2018.json'
 
 export default {
-  name: 'RacingDataCommonModal',
+  name: 'RacingLatestDataCommonModal',
   props: {
-    runnerData: {
-      type: Object,
+    getRaceResults: {
+      type: Array,
       default() {
-        return {}
+        return []
       }
     }
   },
   data() {
     return {
-      sapporo_2018,
-      chartData: [
-        {
-          rank: '1着',
-          number: this.runnerData.rank1_count
-        },
-        {
-          rank: '2着',
-          number: this.runnerData.rank2_count
-        },
-        {
-          rank: '3着',
-          number: this.runnerData.rank3_count
-        },
-        {
-          rank: '4着',
-          number: this.runnerData.rank4_count
-        },
-        {
-          rank: '5着',
-          number: this.runnerData.rank5_count
-        }
-      ]
+      sapporo_2018
     }
   },
   mounted() {
     this.drawChart()
+    console.log(this.getRaceResults)
   },
   methods: {
     drawChart() {
@@ -69,14 +48,14 @@ export default {
       chart.cursor.snapToSeries = series
       chart.cursor.xAxis = dateAxis
       // スクロールバー
-      //chart.scrollbarY = new am4core.Scrollbar();
+      // chart.scrollbarY = new am4core.Scrollbar()
       chart.scrollbarX = new am4core.Scrollbar()
     }
   }
 }
 </script>
 <style lang="sass" scoped>
-.racing-achievement-common-modal
+.racing-latest-data-common-modal
   position: absolute
   width: 90%
   height: 440px

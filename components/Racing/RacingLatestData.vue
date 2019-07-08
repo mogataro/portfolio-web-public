@@ -1,6 +1,7 @@
 <template lang="pug">
 div.racing-latest-data
   div(v-if="getRaceResults.length > 0")
+    //- RacingLatestDataCommonModal(:getRaceResults="getRaceResults")
     p 直近{{getRaceResults.length}}試合の結果
     div.tb
       div.th
@@ -15,23 +16,23 @@ div.racing-latest-data
         div.td
           p {{getRunnerName(raceResult.rank1)}}
           p.img
-            img(:src="requireSrc(raceResult.rank1)" width="80%")
+            img(:src="requireSrc(raceResult.rank1)" width="40px" hright="40px")
         div.td
           p {{getRunnerName(raceResult.rank2)}}
           p.img
-            img(:src="requireSrc(raceResult.rank2)" width="80%")
+            img(:src="requireSrc(raceResult.rank2)" width="40px" hright="40px")
         div.td
           p {{getRunnerName(raceResult.rank3)}}
           p.img
-            img(:src="requireSrc(raceResult.rank3)" width="80%")
+            img(:src="requireSrc(raceResult.rank3)" width="40px" hright="40px")
         div.td
           p {{getRunnerName(raceResult.rank4)}}
           p.img
-            img(:src="requireSrc(raceResult.rank4)" width="80%")
+            img(:src="requireSrc(raceResult.rank4)" width="40px" hright="40px")
         div.td
           p {{getRunnerName(raceResult.rank5)}}
           p.img
-            img(:src="requireSrc(raceResult.rank5)" width="80%")
+            img(:src="requireSrc(raceResult.rank5)" width="40px" hright="40px")
   div(v-else)
     p 試合結果がありません。
 
@@ -39,13 +40,15 @@ div.racing-latest-data
 
 <script>
 import BaseText from '@/components/Base/BaseText'
+import RacingLatestDataCommonModal from '@/components/Racing/RacingLatestDataCommonModal'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 import format from 'date-fns/format'
 
 export default {
   name: 'RacingLatestData',
   components: {
-    BaseText
+    BaseText,
+    RacingLatestDataCommonModal
   },
   props: {
     getRunnerName: {
@@ -92,6 +95,7 @@ export default {
       display: flex
       justify-content: space-between
       width: 100%
+      height: 70px
       border-top: 1px solid black
       &:last-child
         border-bottom: 1px solid black
@@ -103,9 +107,12 @@ export default {
         &:last-child
           border-right: 1px solid black
         .img
-          width: 100%
+          width: 40px
+          height: 40px
+          margin: auto
     .th
       @extend .tr
+      height: 25px
       .td
         height: 25px
         line-height: 25px
