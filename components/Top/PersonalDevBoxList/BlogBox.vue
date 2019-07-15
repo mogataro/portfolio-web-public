@@ -3,7 +3,7 @@
   p.blog-box__img
     img(src="@/assets/img/gif/motoori.gif" width="100%")
   p.blog-box__img-quote
-    a 上記イラスト(引用元:キリヌケ成層圏,作者名:加藤タカシ)
+    span 上記イラスト(引用元:キリヌケ成層圏,作者名:加藤タカシ)
   p.blog-box__text 技術ブログで学んだことを
     br
     | アウトプットしています。

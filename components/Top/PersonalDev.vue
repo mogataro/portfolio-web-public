@@ -15,6 +15,7 @@ import UsakichiBox from '@/components/Top/PersonalDevBoxList/UsakichiBox'
 import LineBotBox from '@/components/Top/PersonalDevBoxList/LineBotBox'
 import PortfolioBox from '@/components/Top/PersonalDevBoxList/PortfolioBox'
 import BlogBox from '@/components/Top/PersonalDevBoxList/BlogBox'
+import populationGraphBox from '@/components/Top/PersonalDevBoxList/populationGraphBox'
 
 export default {
   name: 'PersonalDev',
@@ -24,7 +25,8 @@ export default {
     PersonalDevBox,
     LineBotBox,
     PortfolioBox,
-    BlogBox
+    BlogBox,
+    populationGraphBox
   },
   data() {
     return {
@@ -48,6 +50,10 @@ export default {
         {
           panelName: 'blog',
           componentName: 'BlogBox'
+        },
+        {
+          panelName: 'populationGraph',
+          componentName: 'populationGraphBox'
         }
       ],
       isPanel: {
@@ -70,6 +76,13 @@ export default {
           webUrl: '/racing',
           gitUrl: 'https://github.com/mogataro/portfolio-web-public',
           gitUrlSecond: 'https://github.com/mogataro/portfolio-server'
+        },
+        populationGraph: {
+          header: '総人口推移グラフ',
+          isHover: false,
+          webUrl: 'https://mogataro.com/application/population-graph/',
+          gitUrl:
+            'https://github.com/mogataro/population-graph/tree/release/20190710'
         },
         lineBot: {
           header: 'LineBot (Node.jsで作成)',

@@ -30,6 +30,9 @@
         .skill__box__content-item
           p Nuxt(SPA)
           p 業務/個人
+        .skill__box__content-item
+          p React
+          p 個人(勉強中)
     .skill__box
       .skill__box__header
         p バックエンド
