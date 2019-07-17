@@ -87,23 +87,12 @@ div.profile
         | それは、ユーザー目線にたって考えることにも繋がると思います。
         br
         | 僕はそういった環境で働けたら嬉しいです。
-  //- v-showはDOMとしてはある状態だから、v-ifとの使い分けに注意すること！ってばっちゃが言ってた。
-  transition(name="hidden")
-    .profile__icon__bottom(v-show="false")
-      p.hogehoge(v-html="hogehoge")
 </template>
 <script>
 import format from 'date-fns/format'
 
 export default {
   name: 'Profile',
-  data() {
-    return {
-      hogehoge:
-        '真面目なことをかくと、最後にふざけたこと書きたくなるのはなんでなんだろう。<br>ポートフォリオだからそんなことは絶対に書かないんだけどね！フリじゃないよ？<br>「我が名はモガ太郎。webエンジニアにして、キーボードを操りし者、見るがいい！エクスプロージョン！」<br>「やめるんだモガ太郎！炎上させた上に力尽きるんじゃない！！」',
-      test: false
-    }
-  },
   computed: {
     myDate() {
       //- エンジニアになった日
@@ -150,10 +139,6 @@ export default {
     myName() {
       return process.env.My_Name
     }
-  },
-  mounted() {
-    //- コンソールログは本番に反映する前に消さないといけません。フリじゃないですよ？
-    console.log(this.hogehoge)
   }
 }
 </script>
