@@ -12,15 +12,15 @@ transition(name="panel-hover")
         v-if="!!gitUrl"
         :href="gitUrl"
       )
-        p(v-if="!!gitUrlSecond") GitHUb
+        p(v-if="!!gitUrlSecond") GitHub
           br
           | (Front)
-        p(v-else) GitHUb
+        p(v-else) GitHub
       a.panel-hover__link-item-second(
         v-if="!!gitUrlSecond"
         :href="gitUrlSecond"
       )
-        p GitHUb
+        p GitHub
           br
           | (API)
     .panel-hover__link(v-else)
@@ -34,7 +34,7 @@ transition(name="panel-hover")
         v-if="!!gitUrl"
         :href="gitUrl"
       )
-        p GitHUb
+        p GitHub
 </template>
 <script>
 export default {
