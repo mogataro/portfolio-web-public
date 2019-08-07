@@ -6,19 +6,19 @@
         p デザイン・コーディング
       .skill__box__content
         .skill__box__content-item
-          p HTML5
+          p HTML/Pug
           p 業務/個人
         .skill__box__content-item
-          p Pug
-          p 業務/個人
-        .skill__box__content-item
-          p CSS3
-          p 業務/個人
-        .skill__box__content-item
-          p Sass
+          p CSS/Sass
           p 業務/個人
         .skill__box__content-item
           p Bootstrap4
+          p 業務
+        .skill__box__content-item
+          p Vuetify
+          p 個人/業務
+        .skill__box__content-item
+          p Material Icons
           p 業務
     .skill__box
       .skill__box__header
@@ -26,6 +26,9 @@
       .skill__box__content
         .skill__box__content-item
           p JavaScript
+          p 業務/個人
+        .skill__box__content-item
+          p TypeScript
           p 業務/個人
         .skill__box__content-item
           p Nuxt(SPA)
@@ -38,7 +41,7 @@
         p バックエンド
       .skill__box__content
         .skill__box__content-item
-          p php7
+          p PHP7
           p 業務/個人
         .skill__box__content-item
           p Laravel5
