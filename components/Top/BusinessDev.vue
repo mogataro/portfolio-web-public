@@ -15,6 +15,7 @@ import KikicomAppBox from '@/components/Top/BusinessDevBoxList/KikicomAppBox'
 import KikicomBox from '@/components/Top/BusinessDevBoxList/KikicomBox'
 import GirlpressBox from '@/components/Top/BusinessDevBoxList/GirlpressBox'
 import IotBox from '@/components/Top/BusinessDevBoxList/IotBox'
+import DmBox from '@/components/Top/BusinessDevBoxList/DmBox'
 
 export default {
   name: 'BusinessDev',
@@ -25,11 +26,13 @@ export default {
     KikicomAppBox,
     KikicomBox,
     GirlpressBox,
-    IotBox
+    IotBox,
+    DmBox
   },
   data() {
     return {
       panelList: [
+        { componentName: 'DmBox' },
         { componentName: 'IotBox' },
         { componentName: 'GirlpressBox' },
         { componentName: 'KikicomBox' },

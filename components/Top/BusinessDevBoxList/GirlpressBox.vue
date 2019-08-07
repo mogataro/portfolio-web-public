@@ -1,6 +1,6 @@
 <template lang="pug">
 .fukully-box
-  BoxTemplate(:href="'https://girlpress.com'")
+  BoxTemplate(:href="'https://girl-press.com'")
     p(slot="project")
       span CSVファイルから記事の自動投稿
     div(slot="overview")
