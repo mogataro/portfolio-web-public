@@ -85,5 +85,4 @@ nuxt_tools
 # nuxt.config.js
 yarn.lock
 .editorconfig
-.eslintrc.js
 # package.json
