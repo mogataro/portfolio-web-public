@@ -60,20 +60,19 @@ export default {
         portfolio: {
           header: 'ポートフォリオ',
           isHover: false,
-          webUrl: 'https://mogataro.com',
+          webUrl: 'https://mogataro.com/2019',
           gitUrl: 'https://github.com/mogataro/portfolio-web-public'
         },
         colorCode: {
           header: 'カラーコード変換',
           isHover: false,
-          webUrl: '/colorcode',
+          webUrl: 'https://mogataro.com/2019/colorcode',
           gitUrl: 'https://github.com/mogataro/portfolio-web-public'
         },
         racing: {
           header: '徒競走ゲーム',
           isHover: false,
-          // webUrl: 'https://mogataro.com/racing',
-          webUrl: '/racing',
+          webUrl: 'https://mogataro.com/2019/racing',
           gitUrl: 'https://github.com/mogataro/portfolio-web-public',
           gitUrlSecond: 'https://github.com/mogataro/portfolio-server'
         },

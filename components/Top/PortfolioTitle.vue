@@ -2,7 +2,7 @@
 .portfolio-title
   img.portfolio-title__img(src="@/assets/img/png/checkbg.png" width="100%" height="100%")
   .text
-    p.main モガ太郎のポートフォリオ
+    p.main モガ太郎のポートフォリオ(2019)
     p.sub I am a Web Engineer
 
 </template>

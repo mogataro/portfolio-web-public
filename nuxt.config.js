@@ -14,7 +14,7 @@ const AdsenceId = process.env.AdsenceId
 module.exports = {
   mode: 'spa',
   router: {
-    base: '/',
+    base: '/2019/',
     middleware: ['index'],
     loading: '~/components/Main/loading.vue'
   },
